@@ -292,6 +292,8 @@ require('lazy').setup({
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 -- vim.opt.colorcolumn = '80'
+vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Set highlight on search
 vim.o.hlsearch = false
