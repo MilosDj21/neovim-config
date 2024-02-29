@@ -294,6 +294,7 @@ vim.opt.scrolloff = 8
 -- vim.opt.colorcolumn = '80'
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.wrap = false
 
 -- Set highlight on search
 vim.o.hlsearch = false
