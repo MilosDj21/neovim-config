@@ -295,6 +295,7 @@ vim.opt.scrolloff = 8
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.wrap = false
+vim.opt.relativenumber = true
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -597,7 +598,7 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
