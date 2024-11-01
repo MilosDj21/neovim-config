@@ -11,4 +11,5 @@ return {
   vim.keymap.set('n', '<leader>gp', ":Git push", { desc = 'Populate command line with ":Git push"' }),
   vim.keymap.set('n', '<leader>ol', ":!explorer.exe '$(wslpath -w $(readlink -f myLink.ln))'",
     { desc = 'Windows explorer follow symlink' }),
+  vim.keymap.set('n', '<leader>oe', ":!explorer.exe .<CR>", { desc = 'Open windows explorer in current directory' }),
 }
