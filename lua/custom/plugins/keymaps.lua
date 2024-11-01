@@ -9,4 +9,6 @@ return {
     { desc = 'Add rs domains without tld to end of line' }),
   vim.keymap.set('n', '<leader>gc', ":Git commit -m '", { desc = 'Populate command line with ":Git commit -m"' }),
   vim.keymap.set('n', '<leader>gp', ":Git push", { desc = 'Populate command line with ":Git push"' }),
+  vim.keymap.set('n', '<leader>ol', ":!explorer.exe '$(wslpath -w $(readlink -f myLink.ln))'",
+    { desc = 'Windows explorer follow symlink' }),
 }
