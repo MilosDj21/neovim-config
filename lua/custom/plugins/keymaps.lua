@@ -7,9 +7,11 @@ return {
   vim.keymap.set('n', '<C-h>', ":%s/\\<<C-r><C-w>\\>//gc", { desc = 'Search replace current word' }),
   vim.keymap.set('n', '<C-d>', ":%s/\\(.\\+\\)\\.rs/\\1.rs,\\1/gc",
     { desc = 'Add rs domains without tld to end of line' }),
+  vim.keymap.set('n', '<leader>gg', ":Git<CR>", { desc = 'Open git fugitive' }),
   vim.keymap.set('n', '<leader>gc', ":Git commit -m '", { desc = 'Populate command line with ":Git commit -m"' }),
   vim.keymap.set('n', '<leader>gp', ":Git push", { desc = 'Populate command line with ":Git push"' }),
   vim.keymap.set('n', '<leader>ol', ":!explorer.exe '$(wslpath -w $(readlink -f myLink.ln))'",
     { desc = 'Windows explorer follow symlink' }),
   vim.keymap.set('n', '<leader>oe', ":!explorer.exe .<CR>", { desc = 'Open windows explorer in current directory' }),
+  vim.keymap.set('n', '<leader>mw', ":set wrap linebreak<CR>", { desc = 'Set wrap in txt file' }),
 }
