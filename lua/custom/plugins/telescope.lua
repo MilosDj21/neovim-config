@@ -22,6 +22,21 @@ return {
     -- See `:help telescope` and `:help telescope.setup()`
     config = function()
       require('telescope').setup {
+
+        -- Settings for all pickers
+        -- vimgrep_arguments = {
+        --   'rg',
+        --   '--color=never',
+        --   '--no-heading',
+        --   '--with-filename',
+        --   '--line-number',
+        --   '--column',
+        --   '--smart-case',
+        --   '--hidden',                -- Include hidden files
+        --   '--glob', '!.git/',        -- Ignore .git folder
+        --   '--glob', '!node_modules/' -- Ignore node_modules folder
+        -- },
+
         defaults = {
           mappings = {
             i = {
@@ -33,11 +48,20 @@ return {
             },
           },
         },
+
+        -- Settings for individual pickers
         pickers = {
           find_files = {
-            file_ignore_patterns = { 'node_modules', '.git', '.venv' },
+            file_ignore_patterns = { 'node_modules', '.git', 'package%-lock.json' },
             hidden = true,
+            no_ignore = true
           },
+          live_grep = {
+            additional_args = function()
+              return { "--hidden", "--no-ignore", "--glob", "!node_modules/", "--glob", "!.git/", "--glob",
+                "!package-lock.json" }
+            end
+          }
         }
 
       }
