@@ -1,3 +1,12 @@
+-- Set <space> as the leader key
+-- See `:help mapleader`
+--  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+-- [[ Setting options ]]
+-- See `:help vim.o`
+
 vim.opt.cursorline = true
 vim.opt.scrolloff = 8
 -- vim.opt.colorcolumn = '80'
@@ -42,3 +51,19 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- Number of spaces inserted for each indentation
+vim.o.shiftwidth = 2
+
+vim.o.smartindent = true
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = '*',
+})
