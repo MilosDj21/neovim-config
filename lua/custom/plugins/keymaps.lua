@@ -1,4 +1,34 @@
 return {
+  -- Keymaps for better default experience
+  -- See `:help vim.keymap.set()`
+  vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }),
+
+  -- Remap for dealing with word wrap
+  vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }),
+  vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true }),
+
+  -- Diagnostic keymaps
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' }),
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' }),
+  vim.keymap.set('n', '<leader>fd', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' }),
+  vim.keymap.set('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' }),
+
+
+  -- If either location list(example: diagnostics list), or quickfix list are open close it
+  vim.keymap.set('n', '<leader>qq',
+    function()
+      for _, win in ipairs(vim.fn.getwininfo()) do
+        if win.loclist == 1 then
+          vim.cmd('lclose')
+          return
+        elseif win.quickfix == 1 then
+          vim.cmd('cclose')
+          return
+        end
+      end
+    end,
+    { desc = 'Close location list, or quickfix list' }),
+
   vim.keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' }),
   vim.keymap.set('v', 'jk', '<ESC>', { desc = 'Exit visual mode with jk' }),
   vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save document' }),
