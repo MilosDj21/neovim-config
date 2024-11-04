@@ -10,8 +10,8 @@ return {
   -- Diagnostic keymaps
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' }),
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' }),
-  vim.keymap.set('n', '<leader>fd', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' }),
-  vim.keymap.set('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' }),
+  vim.keymap.set('n', '<leader>fd', vim.diagnostic.open_float, { desc = 'Open [F]loating [D]iaggostics' }),
+  vim.keymap.set('n', '<leader>qd', vim.diagnostic.setloclist, { desc = 'Open [Q]uickfix [D]iagnostics List' }),
 
 
   -- If either location list(example: diagnostics list), or quickfix list are open close it
