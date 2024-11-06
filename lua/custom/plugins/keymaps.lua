@@ -44,4 +44,5 @@ return {
     { desc = 'Windows explorer follow symlink' }),
   vim.keymap.set('n', '<leader>oe', ":!explorer.exe .<CR>", { desc = 'Open windows explorer in current directory' }),
   vim.keymap.set('n', '<leader>mw', ":set wrap linebreak<CR>", { desc = 'Set wrap in txt file' }),
+  vim.keymap.set('n', '<leader>v', "<C-v>", { desc = 'Enter visual block mode' }),
 }
