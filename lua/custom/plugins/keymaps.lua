@@ -1,5 +1,5 @@
 return {
-  -- Keymaps for better default experience
+  -- Custom Keymaps
   -- See `:help vim.keymap.set()`
   vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true }),
 
@@ -29,20 +29,25 @@ return {
     end,
     { desc = 'Close location list, or quickfix list' }),
 
-  vim.keymap.set('i', 'jk', '<ESC>', { desc = 'Exit insert mode with jk' }),
-  vim.keymap.set('v', 'jk', '<ESC>', { desc = 'Exit visual mode with jk' }),
-  vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save document' }),
-  vim.keymap.set('n', '<C-q>', ':q<CR>', { desc = 'Quit document' }),
+  vim.keymap.set({ 'i', 'v' }, 'jk', '<ESC>', { desc = 'Exit insert or visual mode with jk' }),
+  vim.keymap.set('n', '<leader>v', "<C-v>", { desc = 'Enter visual block mode' }),
+  vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save document' }),
+  vim.keymap.set('n', '<C-q>', '<cmd>q<CR>', { desc = 'Quit document' }),
   vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
   vim.keymap.set('n', '<C-h>', ":%s/\\<<C-r><C-w>\\>//gc", { desc = 'Search replace current word' }),
   vim.keymap.set('n', '<C-d>', ":%s/\\(.\\+\\)\\.rs/\\1.rs,\\1/gc",
     { desc = 'Add rs domains without tld to end of line' }),
-  vim.keymap.set('n', '<leader>gg', ":Git<CR>", { desc = 'Open git fugitive' }),
+  vim.keymap.set('n', '<leader>mw', "<cmd>set wrap linebreak<CR>", { desc = 'Set wrap in txt file' }),
+
+  -- Git related keymaps
+  vim.keymap.set('n', '<leader>gg', "<cmd>Git<CR>", { desc = 'Open git fugitive' }),
   vim.keymap.set('n', '<leader>gc', ":Git commit -m '", { desc = 'Populate command line with ":Git commit -m"' }),
   vim.keymap.set('n', '<leader>gp', ":Git push", { desc = 'Populate command line with ":Git push"' }),
+  vim.keymap.set('n', '<leader>gf', "<cmd>Git fetch<CR>", { desc = '[G]it [F]etch' }),
+  vim.keymap.set('n', '<leader>gl', "<cmd>Git pull<CR>", { desc = '[G]it Pull' }),
+
+  -- Windows related keymaps
   vim.keymap.set('n', '<leader>ol', ":!explorer.exe '$(wslpath -w $(readlink -f myLink.ln))'",
     { desc = 'Windows explorer follow symlink' }),
-  vim.keymap.set('n', '<leader>oe', ":!explorer.exe .<CR>", { desc = 'Open windows explorer in current directory' }),
-  vim.keymap.set('n', '<leader>mw', ":set wrap linebreak<CR>", { desc = 'Set wrap in txt file' }),
-  vim.keymap.set('n', '<leader>v', "<C-v>", { desc = 'Enter visual block mode' }),
+  vim.keymap.set('n', '<leader>oe', "<cmd>!explorer.exe .<CR>", { desc = 'Open windows explorer in current directory' }),
 }
