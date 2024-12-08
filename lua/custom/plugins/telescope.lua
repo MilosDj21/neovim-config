@@ -133,30 +133,6 @@ return {
       vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
       vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
-
-      -- Split and search files
-      vim.keymap.set('n', '<leader>ssf', function()
-        vim.cmd('split')
-        require('telescope.builtin').find_files()
-      end, { desc = '[S]earch [F]iles' })
-
-      -- Split vertical and search files
-      vim.keymap.set('n', '<leader>svf', function()
-        vim.cmd('vsplit')
-        require('telescope.builtin').find_files()
-      end, { desc = '[S]earch [F]iles' })
-
-      -- Split and search by grep
-      vim.keymap.set('n', '<leader>ssg', function()
-        vim.cmd('split')
-        require('telescope.builtin').live_grep()
-      end, { desc = '[S]earch by [G]rep' })
-
-      -- Split vertical and search by grep
-      vim.keymap.set('n', '<leader>svg', function()
-        vim.cmd('vsplit')
-        require('telescope.builtin').live_grep()
-      end, { desc = '[S]earch by [G]rep' })
     end
 
   },
