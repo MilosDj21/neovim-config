@@ -52,9 +52,13 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
--- Number of spaces inserted for each indentation
+-- Number of spaces inserted when <TAB> is pressed
+vim.o.softtabstop = 2
+vim.o.tabstop = 2
+-- Option to convert tabs into spaces
+vim.o.expandtab = true
+-- Number of spaces inserted for each indentation, for example when indenting with >>
 vim.o.shiftwidth = 2
-
 vim.o.smartindent = true
 
 -- [[ Highlight on yank ]]
