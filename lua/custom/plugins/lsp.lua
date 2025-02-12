@@ -80,7 +80,7 @@ return {
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         ts_ls = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
