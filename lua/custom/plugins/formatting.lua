@@ -35,7 +35,8 @@ return {
       formatters = {
         pyink = {
           prepend_args = {
-            '--pyink-indentation', '2'
+            '--pyink-indentation', '2',
+            '--line-length', '150'
           }
         }
       },
