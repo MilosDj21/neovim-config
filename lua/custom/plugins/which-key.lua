@@ -71,6 +71,8 @@ return {
         { '<leader>e',  group = 'File [E]xplorer',     mode = { 'n', 'v' } },
         { '<leader>m',  group = 'Format/Wrap',         mode = { 'n', 'v' } },
         { '<leader>o',  group = '[O]pen Win Explorer', mode = { 'n', 'v' } },
+        { '<leader>n',  group = '[N]eorg notes' },
+        { '<leader>nt', group = '[N]eorg [T]asks' },
       },
     },
   },

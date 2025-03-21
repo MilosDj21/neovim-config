@@ -5,9 +5,14 @@ return {
   config = function()
     require("neorg").setup {
       load = {
-        ["core.defaults"] = {},
-        ["core.concealer"] = {},
-        ["core.dirman"] = {
+        ["core.defaults"] = {},  -- Loads default behaviour
+        ["core.concealer"] = {}, -- Adds pretty icons to documents
+        ["core.keybinds"] = {
+          config = {
+            default_keybinds = true -- Adds keybinds
+          }
+        },
+        ["core.dirman"] = { -- Manage directories with Neorg
           config = {
             workspaces = {
               notes = "~neorg/notes",
