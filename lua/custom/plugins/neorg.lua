@@ -20,6 +20,13 @@ return {
             default_workspace = "notes",
           },
         },
+        ["core.journal"] = {                  -- Journal settings
+          config = {
+            workspace = "notes",              -- Journal inside "notes" workspace
+            journal_folder = "journal",
+            strategy = "%Y/%m/%d.%m.%Y.norg", -- Uses nested directories + full-date filename
+          }
+        }
       },
     }
 
