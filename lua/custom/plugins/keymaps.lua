@@ -49,7 +49,8 @@ return {
   -- Windows related keymaps
   vim.keymap.set('n', '<leader>ol', ":!explorer.exe '$(wslpath -w $(readlink -f myLink.ln))'",
     { desc = 'Windows explorer follow symlink' }),
-  vim.keymap.set('n', '<leader>oe', "<cmd>!explorer.exe .<CR>", { desc = 'Open windows explorer in current directory' }),
+  vim.keymap.set('n', '<leader>oe', "<cmd>!explorer.exe $(wslpath -w %:p:h)<CR>",
+    { desc = 'Open windows explorer in current directory' }),
 
   -- Neorg related keymaps
   vim.keymap.set('n', '<leader>nn', "<Plug>(neorg.dirman.new-note)", { desc = 'New note' }),
