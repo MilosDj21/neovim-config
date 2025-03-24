@@ -54,5 +54,9 @@ return {
 
   -- Neorg related keymaps
   vim.keymap.set('n', '<leader>nn', "<Plug>(neorg.dirman.new-note)", { desc = 'New note' }),
-  vim.keymap.set('n', '<leader>ntd', "<Plug>(neorg.qol.todo-items.todo.task-done)", { desc = 'Mark task as done' }),
+  vim.keymap.set('n', '<leader>njt', "<cmd>Neorg journal today<CR>", { desc = 'Open journal for today' }),
+  vim.keymap.set('n', '<leader>ntd', "<Plug>(neorg.qol.todo-items.todo.task-done)", { desc = 'Mark task as [D]one' }),
+  vim.keymap.set('n', '<leader>ntu', "<Plug>(neorg.qol.todo-items.todo.task-undone)", { desc = 'Mark task as [U]done' }),
+  vim.keymap.set('n', '<leader>ntp', "<Plug>(neorg.qol.todo-items.todo.task-pending)",
+    { desc = 'Mark task as [P]ending' }),
 }
