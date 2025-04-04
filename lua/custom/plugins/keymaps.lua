@@ -29,6 +29,7 @@ return {
     end,
     { desc = 'Close location list, or quickfix list' }),
 
+  --  Various custom keymaps
   vim.keymap.set({ 'i', 'v' }, 'jk', '<ESC>', { desc = 'Exit insert or visual mode with jk' }),
   vim.keymap.set('n', '<leader>v', "<C-v>", { desc = 'Enter visual block mode' }),
   vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save document' }),
