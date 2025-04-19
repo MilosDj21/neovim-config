@@ -40,13 +40,13 @@ return {
         local bufnr = args.buf
 
         -- Only attach to clients that support document formatting
-        if not client.server_capabilities.documentFormattingProvider then
+        if client and not client.server_capabilities.documentFormattingProvider then
           return
         end
 
         -- Tsserver usually works poorly. Sorry you work with bad languages
         -- You can remove this line if you know what you're doing :)
-        if client.name == 'tsserver' then
+        if client and client.name == 'tsserver' then
           return
         end
 
