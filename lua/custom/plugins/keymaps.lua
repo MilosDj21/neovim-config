@@ -73,9 +73,13 @@ return {
   vim.keymap.set('n', '<leader>ng',
     "<cmd>lua require('telescope.builtin').live_grep({ cwd = '~/neorg/notes', additional_args = function() return { '--glob', '!journal/*' } end })<CR>",
     { desc = 'Live [G]rep Notes', noremap = true }),
-  vim.keymap.set('n', '<leader>njf',
-    "<cmd>lua require('telescope.builtin').find_files({ cwd = '~/neorg/notes/journal'})<CR>",
-    { desc = '[F]ind Journals', noremap = true }),
+
+  vim.keymap.set('n', '<leader>njf', function()
+    require('telescope.builtin').find_files({
+      cwd = vim.fn.expand('~/neorg/notes/journal'),
+    })
+  end, { desc = '[F]ind Journals' }),
+
   vim.keymap.set('n', '<leader>njg',
     "<cmd>lua require('telescope.builtin').live_grep({ cwd = '~/neorg/notes/journal'})<CR>",
     { desc = 'Live [G]rep Journals', noremap = true }),
