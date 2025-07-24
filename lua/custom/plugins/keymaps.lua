@@ -85,7 +85,9 @@ return {
     })
   end, { desc = '[F]ind Journals' }),
 
-  vim.keymap.set('n', '<leader>njg',
-    "<cmd>lua require('telescope.builtin').live_grep({ cwd = '~/neorg/notes/journal'})<CR>",
-    { desc = 'Live [G]rep Journals', noremap = true }),
+  vim.keymap.set('n', '<leader>njg', function()
+    require('telescope.builtin').live_grep({
+      cwd = vim.fn.expand('~/neorg/notes/journal')
+    })
+  end, { desc = 'Live [G]rep Journals', noremap = true }),
 }
