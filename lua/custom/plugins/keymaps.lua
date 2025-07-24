@@ -60,9 +60,16 @@ return {
   vim.keymap.set('n', '<leader>ntu', "<Plug>(neorg.qol.todo-items.todo.task-undone)", { desc = 'Mark task as [U]done' }),
   vim.keymap.set('n', '<leader>ntp', "<Plug>(neorg.qol.todo-items.todo.task-pending)",
     { desc = 'Mark task as [P]ending' }),
-  vim.keymap.set('n', '<leader>nf',
-    "<cmd>lua require('telescope.builtin').find_files({ cwd = '~/neorg/notes', additional_args = function() return { '--glob', '!journal/*' } end })<CR>",
-    { desc = '[F]ind Notes', noremap = true }),
+
+  vim.keymap.set('n', '<leader>nf', function()
+    require('telescope.builtin').find_files({
+      cwd = vim.fn.expand('~/neorg/notes'),
+      find_command = {
+        'fdfind', '--type', 'f', '--exclude', 'journal'
+      },
+    })
+  end, { desc = '[F]ind Notes' }),
+
   vim.keymap.set('n', '<leader>ng',
     "<cmd>lua require('telescope.builtin').live_grep({ cwd = '~/neorg/notes', additional_args = function() return { '--glob', '!journal/*' } end })<CR>",
     { desc = 'Live [G]rep Notes', noremap = true }),
