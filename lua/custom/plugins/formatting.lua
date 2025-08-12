@@ -12,15 +12,6 @@ return {
         typescriptreact = { 'prettier' },
         php = {
           'php_cs_fixer',
-          -- Ovo ne izgleda ne radi, vidi kako si za python napravio ako ti bude trebalo
-          -- args =
-          -- {
-          --   "fix",
-          --   "--using-cache=no",
-          --   "--rules=@PSR2",
-          --   "--quiet",
-          --   vim.api.nvim_buf_get_name(0)
-          -- }
         },
         svelte = { 'prettier' },
         css = { 'prettier' },
@@ -38,6 +29,12 @@ return {
             '--pyink-indentation', '2',
             '--line-length', '150'
           }
+        },
+        php_cs_fixer = {
+          args = {
+            'fix', '--config=' .. vim.fn.expand('~/.php-cs-fixer.php'), '$FILENAME'
+          },
+          stdin = false
         }
       },
       format_on_save = {
