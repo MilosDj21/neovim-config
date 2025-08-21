@@ -12,6 +12,8 @@ return {
         typescriptreact = { 'prettier' },
         php = {
           'php_cs_fixer',
+          -- 'prettier',
+          -- 'phpcbf',
         },
         svelte = { 'prettier' },
         css = { 'prettier' },
@@ -30,12 +32,24 @@ return {
             '--line-length', '150'
           }
         },
+        -- Alternativni formater za php
+        -- phpcbf = {
+        --   command = 'phpcbf',
+        --   args = { "--standard=PSR12", "$FILENAME" },
+        --   stdin = false
+        -- }
         php_cs_fixer = {
           args = {
             'fix', '--config=' .. vim.fn.expand('~/.php-cs-fixer.php'), '$FILENAME'
           },
           stdin = false
-        }
+        },
+        -- Ovo je samo ako hoces prettier plugin koji formatira php fajl
+        -- prettier = {
+        --   command = "prettier",
+        --   args = { "--plugin=/usr/local/lib/node_modules/@prettier/plugin-php/standalone.js", "--stdin-filepath", "$FILENAME" },
+        --   stdin = true
+        -- }
       },
       format_on_save = {
         lsp_fallback = true,
