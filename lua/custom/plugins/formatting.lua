@@ -34,7 +34,7 @@ return {
         },
         php_cs_fixer = {
           args = {
-            'fix', '--config=' .. vim.fn.expand('~/.php-cs-fixer.php'), '$FILENAME'
+            'fix', '--using-cache', 'no', '--config=' .. vim.fn.expand('~/.php-cs-fixer.php'), '$FILENAME'
           },
           stdin = false
         },
