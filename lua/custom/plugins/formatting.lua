@@ -13,7 +13,7 @@ return {
         php = {
           'php_cs_fixer',
           -- 'prettier',
-          -- 'phpcbf',
+          -- 'prettier_html'
         },
         svelte = { 'prettier' },
         css = { 'prettier' },
@@ -32,12 +32,6 @@ return {
             '--line-length', '150'
           }
         },
-        -- Alternativni formater za php
-        -- phpcbf = {
-        --   command = 'phpcbf',
-        --   args = { "--standard=PSR12", "$FILENAME" },
-        --   stdin = false
-        -- }
         php_cs_fixer = {
           args = {
             'fix', '--config=' .. vim.fn.expand('~/.php-cs-fixer.php'), '$FILENAME'
@@ -48,6 +42,15 @@ return {
         -- prettier = {
         --   command = "prettier",
         --   args = { "--plugin=/usr/local/lib/node_modules/@prettier/plugin-php/standalone.js", "--stdin-filepath", "$FILENAME" },
+        --   stdin = true
+        -- },
+        -- Custom formater za html u php fajlu
+        -- prettier_html = {
+        --   command = "prettier",
+        --   args = {
+        --     "--parser", "html",
+        --     "--stdin-filepath", "$FILENAME"
+        --   },
         --   stdin = true
         -- }
       },
