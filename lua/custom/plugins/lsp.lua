@@ -83,6 +83,7 @@ return {
         pyright = {},
         -- rust_analyzer = {},
         ts_ls = {},
+        intelephense = {},
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
         lua_ls = {
