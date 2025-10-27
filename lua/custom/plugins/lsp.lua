@@ -83,7 +83,35 @@ return {
         pyright = {},
         -- rust_analyzer = {},
         ts_ls = {},
-        intelephense = {},
+
+        intelephense = {
+          intelephense = {
+            files = {
+              maxSize = 5000000, -- optional: allow large WP projects
+            },
+            stubs = {
+              "core",
+              "standard",
+              "wordpress",
+              "woocommerce",
+              "acf-pro",
+              "phpunit",
+              "polylang",
+              "mysqli",
+              "pdo",
+              "curl",
+              "date",
+              "json",
+              "xml",
+            },
+            environment = {
+              includePaths = {
+                -- Point this to where your WordPress/PHP stubs are installed via Composer
+                vim.fn.expand("~/.config/composer/vendor/php-stubs/"),
+              },
+            },
+          },
+        },
         -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
         lua_ls = {
