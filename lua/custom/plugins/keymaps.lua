@@ -35,7 +35,7 @@ return {
   vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save document' }),
   vim.keymap.set('n', '<C-q>', '<cmd>q<CR>', { desc = 'Quit document' }),
   vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
-  vim.keymap.set('n', '<leader>sr', ":%s/\\<<C-r><C-w>\\>//gc<left><left><left>",
+  vim.keymap.set('n', '<leader>sr', ":%s/\\<\\(<C-r><C-w>\\)\\>//gc<left><left><left>",
     { desc = '[S]earch [R]eplace current word' }),
   vim.keymap.set('n', '<C-d>', ":%s/\\(.\\+\\)\\.rs/\\1.rs,\\1/gc",
     { desc = 'Add rs domains without tld to end of line' }),
