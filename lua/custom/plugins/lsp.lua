@@ -107,7 +107,7 @@ return {
             environment = {
               includePaths = {
                 -- Point this to where your WordPress/PHP stubs are installed via Composer
-                vim.fn.expand("~/.config/composer/vendor/php-stubs/"),
+                vim.fn.expand("~/.composer/vendor/php-stubs/"),
               },
             },
           },
