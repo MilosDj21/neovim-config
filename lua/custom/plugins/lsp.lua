@@ -94,6 +94,7 @@ return {
               "standard",
               "wordpress",
               "woocommerce",
+              "spl",
               "acf-pro",
               "phpunit",
               "polylang",
