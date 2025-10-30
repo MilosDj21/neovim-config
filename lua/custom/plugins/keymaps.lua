@@ -35,11 +35,24 @@ return {
   vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save document' }),
   vim.keymap.set('n', '<C-q>', '<cmd>q<CR>', { desc = 'Quit document' }),
   vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
-  vim.keymap.set('n', '<leader>sr', ":%s/\\<\\(<C-r><C-w>\\)\\>//gc<left><left><left>",
-    { desc = '[S]earch [R]eplace current word' }),
   vim.keymap.set('n', '<C-d>', ":%s/\\(.\\+\\)\\.rs/\\1.rs,\\1/gc",
     { desc = 'Add rs domains without tld to end of line' }),
   vim.keymap.set('n', '<leader>mw', "<cmd>set wrap linebreak<CR>", { desc = 'Set wrap in txt file' }),
+
+  -- Search replace keymaps
+  vim.keymap.set('n', '<leader>sr', ":%s/\\<\\(<C-r><C-w>\\)\\>//gc<left><left><left>",
+    { desc = '[S]earch [R]eplace current word' }),
+  vim.keymap.set('n', '<leader>sp', function()
+    local word = vim.fn.expand("<cword>")  -- current word under cursor
+    local replacement = vim.fn.getreg('"') -- last yanked text
+    -- keymap special characters to avoid breaking :s
+    replacement = replacement:gsub("%%", "%%%%")
+    replacement = replacement:gsub("/", "\\/")
+    replacement = replacement:gsub("&", "\\&")
+    -- replace only the word under cursor in the whole file silently
+    local cmd = string.format("s/\\<%s\\>/%s/", word, replacement)
+    vim.cmd(cmd)
+  end, { desc = "Replace current word with yanked text" }),
 
   -- Git related keymaps
   vim.keymap.set('n', '<leader>gg', "<cmd>Git<CR>", { desc = 'Open git fugitive' }),
