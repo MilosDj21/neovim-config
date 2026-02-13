@@ -76,7 +76,7 @@ return {
     require('telescope.builtin').find_files({
       cwd = vim.fn.expand('~/neorg/notes'),
       find_command = {
-        'fdfind', '--type', 'f', '--exclude', 'journal'
+        'fd', '--type', 'f', '--exclude', 'journal'
       },
     })
   end, { desc = '[F]ind Notes' }),
