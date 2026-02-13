@@ -61,11 +61,6 @@ return {
   vim.keymap.set('n', '<leader>gf', "<cmd>Git fetch<CR>", { desc = '[G]it [F]etch' }),
   vim.keymap.set('n', '<leader>gl', "<cmd>Git pull<CR>", { desc = '[G]it Pull' }),
 
-  -- Windows related keymaps
-  vim.keymap.set('n', '<leader>ol', ":!explorer.exe '$(wslpath -w $(readlink -f myLink.ln))'",
-    { desc = 'Windows explorer follow symlink' }),
-  -- vim.keymap.set('n', '<leader>oe', "<cmd>!explorer.exe $(wslpath -w %:p:h)<CR>",
-  -- { desc = 'Open windows explorer in current directory' }),
   vim.keymap.set('n', '<leader>oe', "<cmd>!dolphin %:p:h &<CR>",
     { desc = 'Open dolphin explorer in current directory' }),
 
