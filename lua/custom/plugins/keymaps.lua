@@ -40,6 +40,8 @@ return {
   vim.keymap.set('n', '<leader>mw', "<cmd>set wrap linebreak<CR>", { desc = 'Set wrap in txt file' }),
 
   -- Search replace keymaps
+  vim.keymap.set('n', '<leader>qr', ":cfdo %s/\\<\\(<C-r><C-w>\\)\\>//gc<left><left><left>",
+    { desc = '[R]eplace current word in all quickfix files' }),
   vim.keymap.set('n', '<leader>sr', ":%s/\\<\\(<C-r><C-w>\\)\\>//gc<left><left><left>",
     { desc = '[S]earch [R]eplace current word' }),
   vim.keymap.set('n', '<leader>sp', function()
