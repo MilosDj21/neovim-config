@@ -40,9 +40,9 @@ return {
   vim.keymap.set('n', '<leader>mw', "<cmd>set wrap linebreak<CR>", { desc = 'Set wrap in txt file' }),
 
   -- Search replace keymaps
-  vim.keymap.set('n', '<leader>qr', ":cfdo %s/\\<\\(<C-r><C-w>\\)\\>//gc<left><left><left>",
+  vim.keymap.set('n', '<leader>qr', ":cfdo %s/<C-r><C-w>//gc<left><left><left>",
     { desc = '[R]eplace current word in all quickfix files' }),
-  vim.keymap.set('n', '<leader>sr', ":%s/\\<\\(<C-r><C-w>\\)\\>//gc<left><left><left>",
+  vim.keymap.set('n', '<leader>sr', ":%s/<C-r><C-w>//gc<left><left><left>",
     { desc = '[S]earch [R]eplace current word' }),
   vim.keymap.set('n', '<leader>sp', function()
     local word = vim.fn.expand("<cword>")  -- current word under cursor
@@ -103,4 +103,23 @@ return {
       cwd = vim.fn.expand('~/neorg/notes/journal')
     })
   end, { desc = 'Live [G]rep Journals', noremap = true }),
+
+  -- Send daily journal report after confirmation
+  vim.keymap.set('n', '<leader>njs', function()
+    local file = vim.fn.expand('%:p')
+    local date = os.date('%d.%m.%Y')
+    local question = string.format('Send "%s" as daily journal report?', vim.fn.fnamemodify(file, ':t'))
+
+    -- Confirmation dialog
+    local choice = vim.fn.confirm(question, "&Yes\n&No", 2)
+    if choice ~= 1 then
+      print("Canceled")
+      return
+    end
+
+    -- Run mutt command
+    local cmd = string.format('mutt -s "Izvestaj %s" -a "%s" -- vujo91@gmail.com < /dev/null', date, file)
+    vim.cmd('!' .. cmd)
+    print('Email sent successfully')
+  end, { desc = 'Send daily email journal report' }),
 }
