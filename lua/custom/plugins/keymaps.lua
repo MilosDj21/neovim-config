@@ -33,7 +33,7 @@ return {
   vim.keymap.set({ 'i', 'v' }, 'jk', '<ESC>', { desc = 'Exit insert or visual mode with jk' }),
   vim.keymap.set('n', '<leader>v', "<C-v>", { desc = 'Enter visual block mode' }),
   vim.keymap.set('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save document' }),
-  vim.keymap.set('n', '<C-d>', '<cmd>q<CR>', { desc = 'Quit document' }),
+  vim.keymap.set({ 'n', 'v' }, '<C-d>', '<cmd>q<CR>', { desc = 'Quit document' }),
   vim.keymap.set('n', '<C-a>', 'ggVG', { desc = 'Select all' }),
   vim.keymap.set('n', '<leader>ra', ":%s/\\(.\\+\\)\\.rs/\\1.rs,\\1/gc",
     { desc = 'Add rs domains without tld to end of line' }),
