@@ -122,4 +122,15 @@ return {
     vim.cmd('!' .. cmd)
     print('Email sent successfully')
   end, { desc = 'Send daily email journal report' }),
+
+  -- Mount remote directory to current working directory
+  vim.keymap.set('n', '<leader>md',
+    ":!sshfs root@server %:p:h -o reconnect -o ServerAliveInterval=15 -o ServerAliveCountmax=3 -o compression=yes<C-Left><C-Left><C-Left><C-Left><C-Left><C-Left><C-Left><C-Left><C-Left><left>",
+    { desc = '[M]ount remote [D]ir into current dir with sshfs' }),
+
+  vim.keymap.set('n', '<leader>mr', "<cmd>NvimTreeRefresh<CR>",
+    { desc = '[R]efresh nvim tree' }),
+
+  vim.keymap.set('n', '<leader>mu', "<cmd>!fusermount -u %:p:h<CR>",
+    { desc = '[U]nmount current directory with sshfs' }),
 }
