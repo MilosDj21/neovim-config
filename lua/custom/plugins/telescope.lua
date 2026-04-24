@@ -52,14 +52,14 @@ return {
         -- Settings for individual pickers
         pickers = {
           find_files = {
-            file_ignore_patterns = { 'node_modules', 'vendor', '.git', 'package%-lock.json' },
+            file_ignore_patterns = { 'node_modules', 'vendor', '.git', 'package%-lock.json', ".venv" },
             hidden = true,
             no_ignore = true
           },
           live_grep = {
             additional_args = function()
               return { "--hidden", "--no-ignore", "--glob", "!node_modules/", "--glob", "!.git/", "--glob",
-                "!package-lock.json", "--glob", "!vendor/" }
+                "!package-lock.json", "--glob", "!vendor/", "--glob", "!.venv/" }
             end
           }
         }
