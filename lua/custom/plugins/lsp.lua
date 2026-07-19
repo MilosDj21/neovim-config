@@ -85,9 +85,11 @@ return {
         ts_ls = {},
 
         intelephense = {
+          filetypes = { "php", "blade" },
           intelephense = {
             files = {
               maxSize = 5000000, -- optional: allow large WP projects
+              associations = { "*.php", "*.blade.php" },
             },
             stubs = {
               "core",
