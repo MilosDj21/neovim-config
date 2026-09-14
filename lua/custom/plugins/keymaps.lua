@@ -62,6 +62,7 @@ return {
   vim.keymap.set('n', '<leader>gp', ":Git push", { desc = 'Populate command line with ":Git push"' }),
   vim.keymap.set('n', '<leader>gf', "<cmd>Git fetch<CR>", { desc = '[G]it [F]etch' }),
   vim.keymap.set('n', '<leader>gl', "<cmd>Git pull<CR>", { desc = '[G]it Pull' }),
+  vim.keymap.set('n', '<leader>gr', "<cmd>Git restore %<CR>", { desc = '[G]it [R]estore current file' }),
 
   vim.keymap.set('n', '<leader>oe', "<cmd>!dolphin %:p:h &<CR>",
     { desc = 'Open dolphin explorer in current directory' }),
