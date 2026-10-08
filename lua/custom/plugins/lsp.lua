@@ -39,7 +39,14 @@ return {
           vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
         end, '[C]ode [A]ction')
 
-        nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+        nmap('gds', function()
+          require('telescope.builtin').lsp_definitions({ jump_type = "split" })
+        end, '[G]oto [D]efinition [S]plit')
+
+        nmap('gdv', function()
+          require('telescope.builtin').lsp_definitions({ jump_type = "vsplit" })
+        end, '[G]oto [D]efinition [V]Split')
+
         nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
         nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
         nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
