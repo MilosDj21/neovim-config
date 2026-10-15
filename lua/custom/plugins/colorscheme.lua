@@ -91,6 +91,29 @@ return {
             -- NormalNC = { bg = "#0f0f0f" },
             -- NormalFloat = { bg = "#0f0f0f" },
             -- FloatBorder = { fg = "#0f0f0f" }
+            -- render-markdown heading text
+            RenderMarkdownH1 = { fg = "#ff6b6b", style = "bold" },
+            RenderMarkdownH2 = { fg = "#2eea4e", style = "bold" },
+            RenderMarkdownH3 = { fg = "#f7f376", style = "bold" },
+            RenderMarkdownH4 = { fg = "#2ea0e8", style = "bold" },
+            RenderMarkdownH5 = { fg = "#4dabf7", style = "bold" },
+            RenderMarkdownH6 = { fg = "#b197fc", style = "bold" },
+
+            -- render-markdown heading backgrounds
+            RenderMarkdownH1Bg = { bg = "#3b2323" },
+            RenderMarkdownH2Bg = { bg = "#1f3b26" },
+            RenderMarkdownH3Bg = { bg = "#3a391f" },
+            RenderMarkdownH4Bg = { bg = "#1f1f3a" },
+            RenderMarkdownH5Bg = { bg = "#1f2f3b" },
+            RenderMarkdownH6Bg = { bg = "#2e263b" },
+
+            -- raw heading text (e.g. in insert mode)
+            ["@markup.heading.1.markdown"] = { fg = "#ff6b6b", style = "bold" },
+            ["@markup.heading.2.markdown"] = { fg = "#2eea4e", style = "bold" },
+            ["@markup.heading.3.markdown"] = { fg = "#f7f376", style = "bold" },
+            ["@markup.heading.4.markdown"] = { fg = "#2ea0e8", style = "bold" },
+            ["@markup.heading.5.markdown"] = { fg = "#4dabf7", style = "bold" },
+            ["@markup.heading.6.markdown"] = { fg = "#b197fc", style = "bold" },
           }
         },
       })
